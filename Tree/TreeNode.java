@@ -1,4 +1,4 @@
-package Sorting;
+package Tree;
 
 public class TreeNode {
 
