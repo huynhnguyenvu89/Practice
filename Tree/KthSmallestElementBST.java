@@ -51,4 +51,29 @@ public class KthSmallestElementBST {
         }
         return -1;
     }
+
+
+    public int practiceIteratively(TreeNode root, int k) {
+        TreeNode curr = root;
+        Stack<TreeNode> stack = new Stack<>();
+
+        while (root != null) {
+            stack.push(curr);
+            curr = root.left;
+        }
+
+        while (k > 0) {
+            TreeNode node = stack.pop();
+            k--; 
+            if (k == 0) {
+                return node.val;
+            }
+            TreeNode right = node.right;
+            while (right != null) {
+                stack.push(right);
+                right = right.left;
+            }
+        }
+        return -1; 
+    }
 }
